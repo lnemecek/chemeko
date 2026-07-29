@@ -523,18 +523,19 @@ footer.site a:hover{ color: var(--accent); }
 
 @media (max-width: 640px){
   nav.main{
-    position: fixed;
-    inset: 64px 0 0 0;
-    background: var(--bg);
+    position: static;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px 28px;
-    gap: 22px;
-    font-size: 1.1rem;
-    transform: translateX(100%);
-    transition: transform .25s ease;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 28px;
+    gap: 0;
+    transition: max-height .3s ease;
   }
-  .nav-toggle:checked ~ nav.main{ transform: translateX(0); }
+  .nav-toggle:checked ~ nav.main{
+    max-height: 400px; /* enough to fit all links */
+    padding: 20px 28px;
+  }
   .nav-toggle-label{
     display: flex;
     flex-direction: column;
